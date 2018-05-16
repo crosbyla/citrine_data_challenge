@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="XYZ Pandas PIF Ingester",
+    name="pandas_xyz_pif_ingester",
     version="0.1",
     author="Lawrence Crosby",
     author_email="crosbyla@u.northwestern.edu",
