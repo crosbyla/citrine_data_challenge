@@ -1,5 +1,5 @@
 import pandas as pd
-import pif
+import pypif.pif as pif
 
 
 def load_data(data_file):
@@ -15,6 +15,14 @@ def load_data(data_file):
     df = pd.DataFrame(lines)
 
     return df
+
+
+def save_pif(pif_data):
+    """
+    Saves PIF data to disk as PIF JSON file format
+    input: PIF System object
+    """
+    pif.dumps(pif_data, indent=4)
 
 
 def main():
