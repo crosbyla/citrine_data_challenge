@@ -8,6 +8,7 @@ def load_data(data_file):
     input: GDB-9 xyz file (see DOI:10.1038/sdata.2014.22 for format description)
     output: Pandas DataFrame with the GDB molecule information
     """
+    lines = []
     with open(data_file) as fp:
         for line in fp:
             lines.append(line.strip('\n').split('\t'))
