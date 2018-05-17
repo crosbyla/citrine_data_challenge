@@ -38,16 +38,16 @@ def make_pif(df):
     pif_data = ChemicalSystem()
     pif_data.references = [Reference(doi='10.1038/sdata.2014.22')]
     pif_data.licenses = [
-            License(
-                name='CC0 1.0',
-                description='Creative Commons Public Domain Dedication',
-                url='https://creativecommons.org/publicdomain/zero/1.0/'
-                )
-            ]
+        License(
+            name='CC0 1.0',
+            description='Creative Commons Public Domain Dedication',
+            url='https://creativecommons.org/publicdomain/zero/1.0/'
+        )
+    ]
     software_list = [
-            Software(name='Corina', version='3.491 2013', producer='Altamira LLC'),
-            Software(name='MOPAC', version='13.136L 2012', producer='CAChe Research LLC')
-            ]
+        Software(name='Corina', version='3.491 2013', producer='Altamira LLC'),
+        Software(name='MOPAC', version='13.136L 2012', producer='CAChe Research LLC')
+    ]
     pif_data.preparation = [ProcessStep(software=software_list)]
 
     pif_data.chemical_formula = df.iloc[-1, 0].split('/')[1] # extract chem formula from InChI
@@ -68,7 +68,7 @@ def make_pif(df):
 
     properties = []
     vib_freqs = Property(name='Harmonic Vibrational Frequencies', units='cm-1',
-            dataType='COMPUTATIONAL')
+                         dataType='COMPUTATIONAL')
     vib_freqs.scalars = [Scalar(value=x) for x in df.iloc[-3, :]]
         # set vibrational frequencies using 3rd from last row in DataFrame
 
@@ -85,15 +85,24 @@ def make_pif(df):
     atoms.scalars = [Scalar(elem) for elem in elems]
     properties.append(atoms)
 
-    atomic_positions = Property(name='Atomic Positions', dataType='COMPUTATIONAL', units='angstrom')
+    atomic_positions = Property(name='Atomic Positions',
+                                dataType='COMPUTATIONAL', units='angstrom')
     x_coords = [df.iloc[a, 1] for a in range(2, int(n_atoms)+2)]
     y_coords = [df.iloc[a, 2] for a in range(2, int(n_atoms)+2)]
     z_coords = [df.iloc[a, 3] for a in range(2, int(n_atoms)+2)]
         # set coordinates using 2nd, 3rd, and 4th columns starting from 2nd row of DateFrame
-    atomic_positions.vectors = [[Scalar(x_coords[i]), Scalar(y_coords[i]), Scalar(z_coords[i])] for i in range(int(n_atoms))]
+    atomic_positions.vectors = [
+        [
+            Scalar(x_coords[i]),
+            Scalar(y_coords[i]),
+            Scalar(z_coords[i])
+        ]
+        for i in range(int(n_atoms))
+    ]
     properties.append(atomic_positions)
 
-    partial_charges = Property(name='Partial Charge', dataType='COMPUTATIONAL', units='e')
+    partial_charges = Property(name='Partial Charge',
+                               dataType='COMPUTATIONAL', units='e')
     charges = [df.iloc[a, 4] for a in range(2, int(n_atoms)+2)]
         # set charges using 5th columns starting from 2nd row of DateFrame
     partial_charges.scalars = [Scalar(charge) for charge in charges]
@@ -136,7 +145,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='angstrom^3',
                 scalars=Scalar(value=df.iloc[1, 6])
-         )
+            )
     properties.append(alpha)
 
     e_homo = Property(
@@ -144,7 +153,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 7])
-         )
+            )
     properties.append(e_homo)
 
     e_lumo = Property(
@@ -152,7 +161,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 8])
-         )
+            )
     properties.append(e_lumo)
 
     e_gap = Property(
@@ -160,7 +169,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 9])
-         )
+            )
     properties.append(e_gap)
 
     r2 = Property(
@@ -176,7 +185,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 11])
-         )
+           )
     properties.append(zpve)
 
     u_0 = Property(
@@ -184,7 +193,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 12])
-         )
+          )
     properties.append(u_0)
 
     u = Property(
@@ -192,7 +201,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 13])
-         )
+        )
     properties.append(u)
 
     h = Property(
@@ -200,7 +209,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 14])
-         )
+        )
     properties.append(h)
 
     g = Property(
@@ -208,7 +217,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='Hartree',
                 scalars=Scalar(value=df.iloc[1, 15])
-         )
+        )
     properties.append(g)
 
     c_v = Property(
@@ -216,7 +225,7 @@ def make_pif(df):
                 dataType='COMPUTATIONAL',
                 units='cal/mol/K',
                 scalars=Scalar(value=df.iloc[1, 16])
-         )
+          )
     properties.append(c_v)
 
     pif_data.properties = properties
