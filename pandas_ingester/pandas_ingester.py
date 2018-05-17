@@ -89,13 +89,135 @@ def make_pif(df):
     x_coords = [df.iloc[a, 1] for a in range(2, int(n_atoms)+2)]
     y_coords = [df.iloc[a, 2] for a in range(2, int(n_atoms)+2)]
     z_coords = [df.iloc[a, 3] for a in range(2, int(n_atoms)+2)]
+        # set coordinates using 2nd, 3rd, and 4th columns starting from 2nd row of DateFrame
     atomic_positions.vectors = [[Scalar(x_coords[i]), Scalar(y_coords[i]), Scalar(z_coords[i])] for i in range(int(n_atoms))]
     properties.append(atomic_positions)
 
     partial_charges = Property(name='Partial Charge', dataType='COMPUTATIONAL', units='e')
     charges = [df.iloc[a, 4] for a in range(2, int(n_atoms)+2)]
+        # set charges using 5th columns starting from 2nd row of DateFrame
     partial_charges.scalars = [Scalar(charge) for charge in charges]
     properties.append(partial_charges)
+
+    rot_a = Property(
+                name='Rotational Constant A',
+                dataType='COMPUTATIONAL',
+                units='GHz',
+                scalars=Scalar(value=df.iloc[1, 2])
+            )
+    properties.append(rot_a)
+
+    rot_b = Property(
+                name='Rotational Constant B',
+                dataType='COMPUTATIONAL',
+                units='GHz',
+                scalars=Scalar(value=df.iloc[1, 3])
+            )
+    properties.append(rot_b)
+
+    rot_c = Property(
+                name='Rotational Constant C',
+                dataType='COMPUTATIONAL',
+                units='GHz',
+                scalars=Scalar(value=df.iloc[1, 4])
+            )
+    properties.append(rot_b)
+
+    mu = Property(
+                name='Dipole Moment',
+                dataType='COMPUTATIONAL',
+                units='D',
+                scalars=Scalar(value=df.iloc[1, 5])
+         )
+    properties.append(mu)
+
+    alpha = Property(
+                name='Isotropic Polarizability',
+                dataType='COMPUTATIONAL',
+                units='angstrom^3',
+                scalars=Scalar(value=df.iloc[1, 6])
+         )
+    properties.append(alpha)
+
+    e_homo = Property(
+                name='Energy of HOMO',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 7])
+         )
+    properties.append(e_homo)
+
+    e_lumo = Property(
+                name='Energy of LUMO',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 8])
+         )
+    properties.append(e_lumo)
+
+    e_gap = Property(
+                name='Energy Gap',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 9])
+         )
+    properties.append(e_gap)
+
+    r2 = Property(
+                name='Electronic Spatial Extent',
+                dataType='COMPUTATIONAL',
+                units='angstrom^2',
+                scalars=Scalar(value=df.iloc[1, 10])
+         )
+    properties.append(r2)
+
+    zpve = Property(
+                name='Zero Point Vibrational Energy',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 11])
+         )
+    properties.append(zpve)
+
+    u_0 = Property(
+                name='Internal Energy at OK',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 12])
+         )
+    properties.append(u_0)
+
+    u = Property(
+                name='Internal Energy at 298K',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 13])
+         )
+    properties.append(u)
+
+    h = Property(
+                name='Enthalpy at 298K',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 14])
+         )
+    properties.append(h)
+
+    g = Property(
+                name='Free Energy at 298K',
+                dataType='COMPUTATIONAL',
+                units='Hartree',
+                scalars=Scalar(value=df.iloc[1, 15])
+         )
+    properties.append(g)
+
+    c_v = Property(
+                name='Heat Capacity at 298K',
+                dataType='COMPUTATIONAL',
+                units='cal/mol/K',
+                scalars=Scalar(value=df.iloc[1, 16])
+         )
+    properties.append(c_v)
 
     pif_data.properties = properties
 
