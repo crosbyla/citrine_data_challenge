@@ -1,0 +1,669 @@
+{
+    "category": "system.chemical",
+    "properties": [
+        {
+            "units": "cm-1",
+            "name": "Harmonic Vibrational Frequencies",
+            "scalars": [
+                {
+                    "value": "181.617"
+                },
+                {
+                    "value": "195.8488"
+                },
+                {
+                    "value": "313.3163"
+                },
+                {
+                    "value": "344.4241"
+                },
+                {
+                    "value": "428.5243"
+                },
+                {
+                    "value": "546.8873"
+                },
+                {
+                    "value": "622.4405"
+                },
+                {
+                    "value": "651.379"
+                },
+                {
+                    "value": "716.2276"
+                },
+                {
+                    "value": "764.4829"
+                },
+                {
+                    "value": "788.3464"
+                },
+                {
+                    "value": "842.8411"
+                },
+                {
+                    "value": "851.9403"
+                },
+                {
+                    "value": "904.2135"
+                },
+                {
+                    "value": "920.7926"
+                },
+                {
+                    "value": "926.4554"
+                },
+                {
+                    "value": "952.7713"
+                },
+                {
+                    "value": "977.2012"
+                },
+                {
+                    "value": "1012.195"
+                },
+                {
+                    "value": "1030.1077"
+                },
+                {
+                    "value": "1060.5511"
+                },
+                {
+                    "value": "1098.3521"
+                },
+                {
+                    "value": "1169.134"
+                },
+                {
+                    "value": "1198.6934"
+                },
+                {
+                    "value": "1215.8915"
+                },
+                {
+                    "value": "1231.4078"
+                },
+                {
+                    "value": "1239.5102"
+                },
+                {
+                    "value": "1246.2985"
+                },
+                {
+                    "value": "1266.0474"
+                },
+                {
+                    "value": "1303.6261"
+                },
+                {
+                    "value": "1326.1168"
+                },
+                {
+                    "value": "1367.6506"
+                },
+                {
+                    "value": "1390.584"
+                },
+                {
+                    "value": "1471.8155"
+                },
+                {
+                    "value": "1474.8957"
+                },
+                {
+                    "value": "1488.9634"
+                },
+                {
+                    "value": "1501.3883"
+                },
+                {
+                    "value": "1523.1826"
+                },
+                {
+                    "value": "3009.9065"
+                },
+                {
+                    "value": "3042.2838"
+                },
+                {
+                    "value": "3047.5951"
+                },
+                {
+                    "value": "3056.2052"
+                },
+                {
+                    "value": "3077.0068"
+                },
+                {
+                    "value": "3090.8949"
+                },
+                {
+                    "value": "3102.7208"
+                },
+                {
+                    "value": "3116.1145"
+                },
+                {
+                    "value": "3124.9232"
+                },
+                {
+                    "value": "3212.2133"
+                }
+            ],
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "name": "Number of Atoms",
+            "scalars": [
+                {
+                    "value": "18"
+                }
+            ],
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "name": "Atoms",
+            "scalars": [
+                {
+                    "value": "C"
+                },
+                {
+                    "value": "C"
+                },
+                {
+                    "value": "C"
+                },
+                {
+                    "value": "C"
+                },
+                {
+                    "value": "C"
+                },
+                {
+                    "value": "O"
+                },
+                {
+                    "value": "C"
+                },
+                {
+                    "value": "C"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                },
+                {
+                    "value": "H"
+                }
+            ],
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "angstrom",
+            "vectors": [
+                [
+                    {
+                        "value": "0.0037120954"
+                    },
+                    {
+                        "value": "1.2814046234"
+                    },
+                    {
+                        "value": "-0.1450295138"
+                    }
+                ],
+                [
+                    {
+                        "value": "1.3941264671"
+                    },
+                    {
+                        "value": "0.6786365131"
+                    },
+                    {
+                        "value": "-0.0365415374"
+                    }
+                ],
+                [
+                    {
+                        "value": "1.718464707"
+                    },
+                    {
+                        "value": "0.3155797612"
+                    },
+                    {
+                        "value": "1.4306806133"
+                    }
+                ],
+                [
+                    {
+                        "value": "0.469848534"
+                    },
+                    {
+                        "value": "-0.6372083323"
+                    },
+                    {
+                        "value": "1.4612875386"
+                    }
+                ],
+                [
+                    {
+                        "value": "0.1656489764"
+                    },
+                    {
+                        "value": "-0.1987941549"
+                    },
+                    {
+                        "value": "0.0257411865"
+                    }
+                ],
+                [
+                    {
+                        "value": "0.0798585526"
+                    },
+                    {
+                        "value": "-1.055561097"
+                    },
+                    {
+                        "value": "-1.0685433665"
+                    }
+                ],
+                [
+                    {
+                        "value": "1.0211533859"
+                    },
+                    {
+                        "value": "-0.5794995736"
+                    },
+                    {
+                        "value": "-2.0476694107"
+                    }
+                ],
+                [
+                    {
+                        "value": "2.1146169912"
+                    },
+                    {
+                        "value": "0.2508023996"
+                    },
+                    {
+                        "value": "-1.2957380576"
+                    }
+                ],
+                [
+                    {
+                        "value": "-0.3752406145"
+                    },
+                    {
+                        "value": "1.8933817801"
+                    },
+                    {
+                        "value": "0.6692823756"
+                    }
+                ],
+                [
+                    {
+                        "value": "-0.3029393664"
+                    },
+                    {
+                        "value": "1.6141611923"
+                    },
+                    {
+                        "value": "-1.1302981413"
+                    }
+                ],
+                [
+                    {
+                        "value": "2.662400444"
+                    },
+                    {
+                        "value": "-0.2230864521"
+                    },
+                    {
+                        "value": "1.5399026418"
+                    }
+                ],
+                [
+                    {
+                        "value": "1.7143186327"
+                    },
+                    {
+                        "value": "1.1521083808"
+                    },
+                    {
+                        "value": "2.136387398"
+                    }
+                ],
+                [
+                    {
+                        "value": "0.7564767367"
+                    },
+                    {
+                        "value": "-1.6894436444"
+                    },
+                    {
+                        "value": "1.5065655863"
+                    }
+                ],
+                [
+                    {
+                        "value": "-0.3044949627"
+                    },
+                    {
+                        "value": "-0.446431329"
+                    },
+                    {
+                        "value": "2.2102777348"
+                    }
+                ],
+                [
+                    {
+                        "value": "1.4226024096"
+                    },
+                    {
+                        "value": "-1.4483225909"
+                    },
+                    {
+                        "value": "-2.5773005015"
+                    }
+                ],
+                [
+                    {
+                        "value": "0.5021193286"
+                    },
+                    {
+                        "value": "0.0512425584"
+                    },
+                    {
+                        "value": "-2.7820414351"
+                    }
+                ],
+                [
+                    {
+                        "value": "2.4915152476"
+                    },
+                    {
+                        "value": "1.059956233"
+                    },
+                    {
+                        "value": "-1.929469703"
+                    }
+                ],
+                [
+                    {
+                        "value": "2.9658324149"
+                    },
+                    {
+                        "value": "-0.3855495576"
+                    },
+                    {
+                        "value": "-1.0309987682"
+                    }
+                ]
+            ],
+            "dataType": "COMPUTATIONAL",
+            "name": "Atomic Positions"
+        },
+        {
+            "units": "e",
+            "name": "Partial Charge",
+            "scalars": [
+                {
+                    "value": "-0.392214"
+                },
+                {
+                    "value": "0.215423"
+                },
+                {
+                    "value": "-0.284618"
+                },
+                {
+                    "value": "-0.288056"
+                },
+                {
+                    "value": "0.387777"
+                },
+                {
+                    "value": "-0.292863"
+                },
+                {
+                    "value": "-0.095912"
+                },
+                {
+                    "value": "-0.319315"
+                },
+                {
+                    "value": "0.109091"
+                },
+                {
+                    "value": "0.118283"
+                },
+                {
+                    "value": "0.104926"
+                },
+                {
+                    "value": "0.099645"
+                },
+                {
+                    "value": "0.113546"
+                },
+                {
+                    "value": "0.097726"
+                },
+                {
+                    "value": "0.111339"
+                },
+                {
+                    "value": "0.102638"
+                },
+                {
+                    "value": "0.105354"
+                },
+                {
+                    "value": "0.10723"
+                }
+            ],
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "GHz",
+            "name": "Rotational Constant A",
+            "scalars": {
+                "value": "3.65666"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "GHz",
+            "name": "Rotational Constant B",
+            "scalars": {
+                "value": "2.21781"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "GHz",
+            "name": "Rotational Constant B",
+            "scalars": {
+                "value": "2.21781"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "D",
+            "name": "Dipole Moment",
+            "scalars": {
+                "value": "1.3166"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "angstrom^3",
+            "name": "Isotropic Polarizability",
+            "scalars": {
+                "value": "70.06"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Energy of HOMO",
+            "scalars": {
+                "value": "-0.2114"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Energy of LUMO",
+            "scalars": {
+                "value": "0.0823"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Energy Gap",
+            "scalars": {
+                "value": "0.2937"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "angstrom^2",
+            "name": "Electronic Spatial Extent",
+            "scalars": {
+                "value": "775.362"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Zero Point Vibrational Energy",
+            "scalars": {
+                "value": "0.155886"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Internal Energy at OK",
+            "scalars": {
+                "value": "-347.762067"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Internal Energy at 298K",
+            "scalars": {
+                "value": "-347.755612"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Enthalpy at 298K",
+            "scalars": {
+                "value": "-347.754668"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "Hartree",
+            "name": "Free Energy at 298K",
+            "scalars": {
+                "value": "-347.792218"
+            },
+            "dataType": "COMPUTATIONAL"
+        },
+        {
+            "units": "cal/mol/K",
+            "name": "Heat Capacity at 298K",
+            "scalars": {
+                "value": "26.506"
+            },
+            "dataType": "COMPUTATIONAL"
+        }
+    ],
+    "preparation": [
+        {
+            "software": [
+                {
+                    "version": "3.491 2013",
+                    "producer": "Altamira LLC",
+                    "name": "Corina"
+                },
+                {
+                    "version": "13.136L 2012",
+                    "producer": "CAChe Research LLC",
+                    "name": "MOPAC"
+                }
+            ]
+        }
+    ],
+    "chemicalFormula": "C7H10O",
+    "ids": [
+        {
+            "name": "GDB9 Id",
+            "value": "17001"
+        },
+        {
+            "name": "InChI Corina",
+            "value": "InChI=1S/C7H10O/c1-2-7-5-6(1,7)3-4-8-7/h1-5H2"
+        },
+        {
+            "name": "SMILES GDB-17",
+            "value": "C1C23CCC12OCC3"
+        },
+        {
+            "name": "SMILES B3LYP",
+            "value": "C1[C@@]23CC[C@@]12OCC3"
+        }
+    ],
+    "contacts": [
+        {
+            "name": {
+                "given": "Lawrence",
+                "family": "Crosby"
+            },
+            "orcid": "0000-0001-7644-3762",
+            "email": "crosbyla@u.northwestern.edu"
+        }
+    ],
+    "licenses": [
+        {
+            "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "description": "Creative Commons Public Domain Dedication",
+            "name": "CC0 1.0"
+        }
+    ],
+    "uid": "InChI=1S/C7H10O/c1-2-7-5-6(1,7)3-4-8-7/h1-5H2/t6-,7+/m0/s1",
+    "references": [
+        {
+            "doi": "10.1038/sdata.2014.22"
+        }
+    ]
+}
