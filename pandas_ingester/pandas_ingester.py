@@ -2,15 +2,16 @@ import os
 import argparse
 import pandas as pd
 import pypif.pif as pif
-from pypif.obj import ChemicalSystem
+from pypif.obj import ChemicalSystem, Property, Id, License, Person, Reference
 
 
 def load_data(data_file):
     """
     Loads GDB-9 XYZ files into memory as a Pandas dataframe
-    input: GDB-9 xyz file (see DOI:10.1038/sdata.2014.22 for format
+
+    :param: GDB-9 xyz file (see DOI:10.1038/sdata.2014.22 for format
                             description)
-    output: Pandas DataFrame with the GDB molecule information
+    :return: Pandas DataFrame with the GDB molecule information
     """
     lines = []
 
@@ -29,8 +30,9 @@ def make_pif(df):
     """
     Extracts information from Pandas Dataframe with GDB-9 molecule data
     to create a PIF object containing metadata and structural information
-    input: Pandas Dataframe object
-    output: PIF object
+
+    :param: df - Pandas Dataframe object
+    :return: PIF object
     """
     pif_data = ChemicalSystem()
 
@@ -40,9 +42,9 @@ def make_pif(df):
 def save_pif(pif_data, data_dir=None, out_file=None):
     """
     Saves PIF data to disk as PIF JSON file format
-    inputs:
-        pif_data: PIF System object
-        out_file: Path the write output file, will default to current directory
+
+    :param: pif_data -  PIF System object
+    :param: out_file -  Path the write output file, will default to current directory
     """
     if not out_file:
         out_file = os.path.join(os.getcwd(), '{}.xyz'.format(pif_data.ids))
@@ -55,7 +57,8 @@ def main(data_file):
     """
     Loads data from GDB-9 XYZ files as Pandas DataFrame, converts to the PIF
     format and writes file to disk as JSON format
-    input: data_file, path to GDB-9 XYZ file on disk
+
+    :param: data_file - path to GDB-9 XYZ file on disk
     """
 
     df = load_data(data_file)
