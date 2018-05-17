@@ -3,7 +3,7 @@ import argparse
 import pandas as pd
 import pypif.pif as pif
 from pypif.obj import ChemicalSystem, Property, Id, License, Person, Reference,\
-        ProcessStep, Software, Scalar
+        ProcessStep, Software, Scalar, Name
 
 
 def load_data(data_file):
@@ -36,6 +36,14 @@ def make_pif(df):
     :return: PIF object
     """
     pif_data = ChemicalSystem()
+    pif_data.contacts = [
+        Person(
+            name=Name(given='Lawrence', family='Crosby'),
+            email='crosbyla@u.northwestern.edu',
+            orcid='0000-0001-7644-3762'
+        )
+    ]
+
     pif_data.references = [Reference(doi='10.1038/sdata.2014.22')]
     pif_data.licenses = [
         License(
