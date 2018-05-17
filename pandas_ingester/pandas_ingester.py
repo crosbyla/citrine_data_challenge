@@ -56,6 +56,8 @@ def make_pif(df):
         # set from last row, second element in DataFrame
 
     ids = []
+    gdb9_id = Id(name='GDB9 Id', value=df.iloc[1, 1])
+    ids.append(gdb9_id)
     inchi_id_corina = Id(name='InChI Corina', value=df.iloc[-1, 0])
     ids.append(inchi_id_corina) # add Corina InChI to id list
     smiles_id_gdb17 = Id(name='SMILES GDB-17', value=df.iloc[-2, 0])
@@ -77,7 +79,7 @@ def make_pif(df):
     return pif_data
 
 
-def save_pif(pif_data, data_dir=None, out_file=None):
+def save_pif(pif_data, out_file=None, data_dir=os.getcwd()):
     """
     Saves PIF data to disk as PIF JSON file format
 
@@ -85,7 +87,7 @@ def save_pif(pif_data, data_dir=None, out_file=None):
     :param: out_file -  Path the write output file, will default to current directory
     """
     if not out_file:
-        out_file = os.path.join(os.getcwd(), '{}.xyz'.format(pif_data.ids[0]))
+        out_file = os.path.join(data_dir, '{}.json'.format(pif_data.ids[0]))
 
     with open(out_file, 'w') as fp:
         fp.write(pif.dumps(pif_data, indent=4))
@@ -102,7 +104,7 @@ def main(data_file):
     df = load_data(data_file)
     pif_data = make_pif(df)
 
-    save_pif(pif_data, data_dir, out_file=data_file)
+    save_pif(pif_data, out_file=data_file)
 
 
 if __name__ == '__main__':
