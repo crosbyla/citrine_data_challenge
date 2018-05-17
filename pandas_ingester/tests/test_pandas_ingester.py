@@ -2,7 +2,7 @@ from pandas_ingester.pandas_ingester import main, load_data, save_pif
 
 import pandas as pd
 import os
-from os.path import dirname, join, abspath
+from os.path import dirname, join, abspath, isfile
 import pypif.pif as pif
 
 
@@ -18,4 +18,4 @@ def test_main():
     data_file = join(base_dir, '..', 'data', 'dsgdb9nsd_067017.xyz')
 
     main(data_file)
-    #assert os.path.isfile(os.path.join(os.getcwd(), 
+    assert isfile(join(os.curdir,'{}.json'.format(67017)))
