@@ -6,15 +6,13 @@ setup(
     author="Lawrence Crosby",
     author_email="crosbyla@u.northwestern.edu",
     description="Python module for parsing GDB-9 XYZ files using Pandas library",
-    # packages=['pandas_ingester'],
     packages=find_packages(),
     install_requires=[
         "pypif",
         "pandas>=0.20",
-        "",
     ],
     tests_require=[
-        "pytest"
+        "pytest>=3.4.0"
     ],
     entry_points={
         'console_scripts': [
