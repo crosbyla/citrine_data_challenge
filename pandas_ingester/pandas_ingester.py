@@ -256,7 +256,7 @@ def save_pif(pif_data, out_file=None, data_dir=os.getcwd()):
         fp.write(pif.dumps(pif_data, indent=4))
 
 
-def main(data_file):
+def main(data_file, out_file=None):
     """
     Loads data from GDB-9 XYZ files as Pandas DataFrame, converts to the PIF
     format and writes file to disk as JSON format
@@ -267,12 +267,13 @@ def main(data_file):
     df = load_data(data_file)
     pif_data = make_pif(df)
 
-    save_pif(pif_data)
+    save_pif(pif_data, out_file)
 
 
 def parse_cli():
     parser = argparse.ArgumentParser(description='This program converts GDB9 XYZ files to the PIF JSON format')
     parser.add_argument("data_file", help="path to input file")
+    parser.add_argument("-o", dest='out_file', help="output file name")
     args = parser.parse_args()
     try:
         if args.data_file[-4:] != '.xyz':
@@ -280,7 +281,7 @@ def parse_cli():
     except IndexError:
         print('File name is too short')
 
-    main(args.data_file)
+    main(args.data_file, args.out_file)
 
 
 if __name__ == '__main__':
