@@ -19,6 +19,14 @@ To use either import ```pandas_ingester``` module and use the available function
 $ pandas-ingester testfile.xyz
 ```
 
+By default, the output file will be a JSON fill and will be written to the same directory.
+The file name will be based upon the gdb ID number.
+Optionally, one can specify the output file name with the ```-o``` flag:
+
+```shell
+$ pandas-ingester testfile.xyz -o outfile.json
+```
+
 ## Example
 
 The data used for tests is from the QM9 database from the article listed above.
