@@ -283,7 +283,7 @@ def parse_cli(arg_list=None):
     parser = argparse.ArgumentParser(description='This program converts GDB9 XYZ files to the PIF JSON format')
     parser.add_argument("data_file", help="path to input file")
     parser.add_argument("-o", dest='out_file', help="output file name")
-    args = parser.parse_args()
+    args = parser.parse_args(arg_list)
 
     try:
         if args.data_file[-4:] != '.xyz':
