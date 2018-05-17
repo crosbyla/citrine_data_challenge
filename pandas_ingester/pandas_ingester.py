@@ -85,7 +85,7 @@ def make_pif(df):
     atoms.scalars = [Scalar(elem) for elem in elems]
     properties.append(atoms)
 
-    atomic_positions = Property(name='Atomic Positions', dataType='COMPUTATIONAL', units='e')
+    atomic_positions = Property(name='Atomic Positions', dataType='COMPUTATIONAL', units='angstrom')
     x_coords = [df.iloc[a, 1] for a in range(2, int(n_atoms)+2)]
     y_coords = [df.iloc[a, 2] for a in range(2, int(n_atoms)+2)]
     z_coords = [df.iloc[a, 3] for a in range(2, int(n_atoms)+2)]
