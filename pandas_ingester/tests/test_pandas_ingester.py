@@ -1,5 +1,6 @@
-from pandas_ingester.pandas_ingester import main, load_data, make_pif
-
+from pandas_ingester.pandas_ingester import main, load_data, make_pif, parse_cli
+import argparse
+import pytest
 import pandas as pd
 import re
 import os
@@ -44,3 +45,12 @@ def test_main():
         main(join(data_dir, data_file))
         file_id = int(re.search(pat, data_file).group(1))
         assert isfile(join(os.curdir,'{}.json'.format(file_id))), 'Could not write JSON file'
+
+def test_parse_cli():
+    test_args = '123abc.xyz -o data/dir/fname.json'.split()
+    assert isinstance(parse_cli(test_args), argparse.Namespace)
+
+    test_args = '124abc.txt'.split()
+    with pytest.raises(ValueError) as excinfo:
+        parse_cli(test_args)
+    assert str(excinfo.value) == 'Must be XYZ file!'

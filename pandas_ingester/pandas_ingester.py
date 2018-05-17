@@ -270,19 +270,29 @@ def main(data_file, out_file=None):
     save_pif(pif_data, out_file)
 
 
-def parse_cli():
+def parse_cli(arg_list=None):
+    """
+    Command line interface for package to direct program flow
+
+    :param: arg_list = optional list of arguments to pass to ArgumentParser
+    Required arguments: data_file - path to XYZ file to be processed
+    Optional arguments: out_file - path the write PIF JSON file
+
+    :return: args - ArgumentParser.parse_args() object with command line args
+    """
     parser = argparse.ArgumentParser(description='This program converts GDB9 XYZ files to the PIF JSON format')
     parser.add_argument("data_file", help="path to input file")
     parser.add_argument("-o", dest='out_file', help="output file name")
     args = parser.parse_args()
+
     try:
         if args.data_file[-4:] != '.xyz':
             raise ValueError('Must be XYZ file!')
     except IndexError:
         print('File name is too short')
-
-    main(args.data_file, args.out_file)
+    return args
 
 
 if __name__ == '__main__':
-    parse_cli()
+    args = parse_cli()
+    main(args.data_file, args.out_file)
