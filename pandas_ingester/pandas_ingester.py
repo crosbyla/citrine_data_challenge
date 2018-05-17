@@ -2,7 +2,7 @@ import os
 import argparse
 import pandas as pd
 import pypif.pif as pif
-from pypif.obj import ChemicalSystem, Property, Id, License, Person, Reference
+from pypif.obj import ChemicalSystem, Property, Id, License, Person, Reference, ProcessStep, Software
 
 
 def load_data(data_file):
@@ -35,6 +35,43 @@ def make_pif(df):
     :return: PIF object
     """
     pif_data = ChemicalSystem()
+    pif_data.references = [Reference(doi='10.1038/sdata.2014.22')]
+    pif_data.licenses = [
+            License(
+                name='CC0 1.0',
+                description='Creative Commons Public Domain Dedication',
+                url='https://creativecommons.org/publicdomain/zero/1.0/'
+                )
+            ]
+    software_list = [
+            Software(name='Corina', version='3.491 2013', producer='Altamira LLC'),
+            Software(name='MOPAC', version='13.136L 2012', producer='CAChe Research LLC')
+            ]
+    pif_data.preparation = [ProcessStep(software=software_list)]
+
+    pif_data.chemical_formula = df.iloc[-1, 0].split('/')[1] # extract chem formula from InChI
+        # set from last row, first element in DataFrame
+    pif_data.uid = df.iloc[-1, 1] # use B3LYP InChI as uid
+        # set from last row, second element in DataFrame
+
+    ids = []
+    inchi_id_corina = Id(name='InChI Corina', value=df.iloc[-1, 0])
+    ids.append(inchi_id_corina) # add Corina InChI to id list
+    smiles_id_gdb17 = Id(name='SMILES GDB-17', value=df.iloc[-2, 0])
+    ids.append(smiles_id_gdb17)# add SMILES GDB-17 to id list
+    smiles_id_b3lyp = Id(name='SMILES B3LYP', value=df.iloc[-2, 1])
+    ids.append(smiles_id_b3lyp)# add SMILES B3YLP to id list
+    pif_data.ids = ids
+
+    properties = []
+    vib_freqs = Property(name='Harmonic Vibrational Frequencies', units='cm-1',
+                         dataType='COMPUTATIONAL')
+    vib_freqs.scalars = [Scalar(value=x) for x in df.iloc[-3, :]]
+        # set vibrational frequencies using 3rd from last row in DataFrame
+
+    properties.append(vib_freqs)
+
+    pif_data.properties = properties
 
     return pif_data
 
@@ -47,7 +84,7 @@ def save_pif(pif_data, data_dir=None, out_file=None):
     :param: out_file -  Path the write output file, will default to current directory
     """
     if not out_file:
-        out_file = os.path.join(os.getcwd(), '{}.xyz'.format(pif_data.ids))
+        out_file = os.path.join(os.getcwd(), '{}.xyz'.format(pif_data.ids[0]))
 
     with open(out_file, 'w') as fp:
         fp.write(pif.dumps(pif_data, indent=4))
@@ -64,7 +101,7 @@ def main(data_file):
     df = load_data(data_file)
     pif_data = make_pif(df)
 
-    save_pif(pif_data)
+    save_pif(pif_data, data_dir, out_file=data_file)
 
 
 if __name__ == '__main__':
