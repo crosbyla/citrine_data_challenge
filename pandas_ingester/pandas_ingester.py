@@ -270,14 +270,18 @@ def main(data_file):
     save_pif(pif_data)
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
+def parse_cli():
+    parser = argparse.ArgumentParser(description='This program converts GDB9 XYZ files to the PIF JSON format')
     parser.add_argument("data_file", help="path to input file")
     args = parser.parse_args()
     try:
-        if args.data_file[-4] != '.xyz':
+        if args.data_file[-4:] != '.xyz':
             raise ValueError('Must be XYZ file!')
     except IndexError:
         print('File name is too short')
 
     main(args.data_file)
+
+
+if __name__ == '__main__':
+    parse_cli()
