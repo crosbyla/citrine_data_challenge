@@ -31,5 +31,4 @@ def test_main():
     for data_file in data_files:
         main(join(data_dir, data_file))
         file_id = int(re.search(pat, data_file).group(1))
-        print(file_id)
         assert isfile(join(os.curdir,'{}.json'.format(file_id)))
