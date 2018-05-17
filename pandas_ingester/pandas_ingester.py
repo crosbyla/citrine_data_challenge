@@ -84,7 +84,8 @@ def save_pif(pif_data, out_file=None, data_dir=os.getcwd()):
     Saves PIF data to disk as PIF JSON file format
 
     :param: pif_data -  PIF System object
-    :param: out_file -  Path the write output file, will default to current directory
+    :param: out_file -  Output file name, will default to pif GDB9 id number
+    :param: data_dir -  Path to write output file, will default to current directory
     """
     if not out_file:
         out_file = os.path.join(data_dir, '{}.json'.format(pif_data.ids[0]))
