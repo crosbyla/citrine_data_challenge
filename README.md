@@ -5,6 +5,20 @@
 This package uses the Pandas library to ingest GDB-9 XYZ structure files into the Physical Information Format (PIF).
 Metadata for the files is position-based, using the specification listed in Tables 2 and 3 at [dx.doi.org/10.1038/sdata.2014.22](https://dx.doi.org/10.1038/sdata.2014.22).
 
+## Use
+
+Install using setup.py
+
+```shell
+$ python setup.py install
+```
+
+To use either import ```pandas_ingester``` module and use the available functions, or from the command line user the ```pandas-ingester``` utility:
+
+```shell
+$ pandas-ingester testfile.xyz
+```
+
 ## Example
 
 The data used for tests is from the QM9 database from the article listed above.
