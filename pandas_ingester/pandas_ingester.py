@@ -3,7 +3,7 @@ import argparse
 import pandas as pd
 import pypif.pif as pif
 from pypif.obj import ChemicalSystem, Property, Id, License, Person, Reference,\
-                      ProcessStep, Software, Scalar
+        ProcessStep, Software, Scalar
 
 
 def load_data(data_file):
@@ -68,11 +68,34 @@ def make_pif(df):
 
     properties = []
     vib_freqs = Property(name='Harmonic Vibrational Frequencies', units='cm-1',
-                         dataType='COMPUTATIONAL')
+            dataType='COMPUTATIONAL')
     vib_freqs.scalars = [Scalar(value=x) for x in df.iloc[-3, :]]
         # set vibrational frequencies using 3rd from last row in DataFrame
 
     properties.append(vib_freqs)
+    num_atoms = Property(name='Number of Atoms', dataType='COMPUTATIONAL')
+    n_atoms = df.iloc[0, 0]
+        # get n_atoms from first element of DataFrame
+    num_atoms.scalars = [Scalar(value=n_atoms)]
+    properties.append(num_atoms)
+
+    atoms = Property(name='Atoms', dataType='COMPUTATIONAL')
+    elems = [df.iloc[a, 0] for a in range(2, int(n_atoms)+2)]
+        # set elements using 1st column starting from 2nd row of DateFrame
+    atoms.scalars = [Scalar(elem) for elem in elems]
+    properties.append(atoms)
+
+    atomic_positions = Property(name='Atomic Positions', dataType='COMPUTATIONAL', units='e')
+    x_coords = [df.iloc[a, 1] for a in range(2, int(n_atoms)+2)]
+    y_coords = [df.iloc[a, 2] for a in range(2, int(n_atoms)+2)]
+    z_coords = [df.iloc[a, 3] for a in range(2, int(n_atoms)+2)]
+    atomic_positions.vectors = [[Scalar(x_coords[i]), Scalar(y_coords[i]), Scalar(z_coords[i])] for i in range(int(n_atoms))]
+    properties.append(atomic_positions)
+
+    partial_charges = Property(name='Partial Charge', dataType='COMPUTATIONAL', units='e')
+    charges = [df.iloc[a, 4] for a in range(2, int(n_atoms)+2)]
+    partial_charges.scalars = [Scalar(charge) for charge in charges]
+    properties.append(partial_charges)
 
     pif_data.properties = properties
 
