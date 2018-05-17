@@ -2,7 +2,8 @@ import os
 import argparse
 import pandas as pd
 import pypif.pif as pif
-from pypif.obj import ChemicalSystem, Property, Id, License, Person, Reference, ProcessStep, Software
+from pypif.obj import ChemicalSystem, Property, Id, License, Person, Reference,\
+                      ProcessStep, Software, Scalar
 
 
 def load_data(data_file):
