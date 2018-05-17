@@ -5,7 +5,7 @@ setup(
     version="0.1",
     author="Lawrence Crosby",
     author_email="crosbyla@u.northwestern.edu",
-    description="Python module for parsing ",
+    description="Python module for parsing GDB-9 XYZ files using Pandas library",
     # packages=['pandas_ingester'],
     packages=find_packages(),
     install_requires=[
@@ -18,7 +18,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'pandas-ingester=pandas_ingester.pandas_ingester:main',
+            'pandas-ingester=pandas_ingester.pandas_ingester:parse_cli',
         ]
     },
 )
