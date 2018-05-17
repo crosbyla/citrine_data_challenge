@@ -3,7 +3,7 @@
 ## Description
 
 This package uses the Pandas library to ingest GDB-9 XYZ structure files into the Physical Information Format (PIF).
-Metadata for the files is position-based, using the specification listed in Tables 2 and 3 at [dx.doi.org/10.1038/sdata.2014.22](dx.doi.org/10.1038/sdata.2014.22).
+Metadata for the files is position-based, using the specification listed in Tables 2 and 3 at [dx.doi.org/10.1038/sdata.2014.22](https://dx.doi.org/10.1038/sdata.2014.22).
 
 ## Example
 
